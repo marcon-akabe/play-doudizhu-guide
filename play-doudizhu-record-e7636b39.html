@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>斗地主 · 玩法与知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f7f5f0;
+      color: #2c2b28;
+      line-height: 1.65;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #1e1d1b 0%, #2e2a25 100%);
+      padding: 4rem 2rem 3.2rem;
+      text-align: center;
+      color: #ece7de;
+      border-bottom: 4px solid #d9a74a;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #cfc5b0;
+      max-width: 640px;
+      margin: 0 auto 0.4rem;
+    }
+    .hero .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #d9a74a;
+      color: #1e1d1b;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* 正文区 - 浅色底 */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.8rem 1.6rem 3.6rem;
+    }
+
+    /* 目录感布局：卡片网格 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem 2rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      border-left: 4px solid #d9a74a;
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+      color: #1e1d1b;
+    }
+
+    .card p, .card li {
+      font-size: 0.98rem;
+      color: #3d3b37;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .card ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #d9a74a;
+      font-weight: 300;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #b8862d;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.15s;
+    }
+    a:hover {
+      color: #8f6b1f;
+    }
+
+    .intro-block {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+    .intro-block p {
+      margin-bottom: 1rem;
+    }
+    .intro-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem 2.5rem;
+      background: #f0ede7;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      margin-top: 0.8rem;
+    }
+    .info-item {
+      min-width: 150px;
+      flex: 1 1 180px;
+    }
+    .info-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1e1d1b;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+    .info-item span {
+      color: #5b554b;
+      font-size: 0.92rem;
+    }
+
+    .faq-preview {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 1.2rem;
+    }
+    .faq-preview h3 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      color: #1e1d1b;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e7e2d9;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      font-size: 0.93rem;
+      color: #55524b;
+    }
+
+    .cta-line {
+      text-align: center;
+      margin: 2rem 0 0.5rem;
+      font-size: 1.05rem;
+      color: #3d3b37;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd7cc;
+      margin: 2.2rem 0;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1.2rem 2.2rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .container { padding: 2rem 1rem 3rem; }
+      .card { padding: 1.3rem; }
+      .intro-block { padding: 1.6rem; }
+      .info-row { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>牌桌 · 知识库</h1>
+    <p class="sub">规则、策略与乐趣——关于斗地主，你想了解的都在这里</p>
+    <span class="badge">棋牌文化 · 技巧沉淀</span>
+  </header>
+
+  <div class="container">
+    <!-- 快速识别用途的说明区 -->
+    <div class="intro-block">
+      <p>如果你刚刚打开 <a href="https://play-doudizhu.com">斗地主</a> 这个站点，可能会好奇它到底提供什么。简单说：这里是一份围绕斗地主展开的信息索引，帮助新老玩家快速理解游戏机制、常见打法以及牌局里的那些门道。</p>
+      <p>无论你是想回顾基本出牌顺序，还是想了解“春天”与“反春天”的判定条件，又或者对叫分策略感到犹豫——这个页面都尝试把零散知识归拢成目录式的卡片，方便你按需查阅。</p>
+    </div>
+
+    <!-- 目录感布局：三个主要区域 -->
+    <div class="grid">
+      <div class="card">
+        <h3>基础规则</h3>
+        <ul>
+          <li>发牌与牌型：火箭、炸弹、单张、对子、三带等</li>
+          <li>出牌权与压牌逻辑</li>
+          <li>叫分流程与地主、农民身份</li>
+          <li>胜负条件与计分方式</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>策略提示</h3>
+        <ul>
+          <li>牌型组合与拆牌思路</li>
+          <li>记牌与算牌的基本方法</li>
+          <li>农民之间的配合信号</li>
+          <li>如何判断叫不叫地主</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>常见误区</h3>
+        <ul>
+          <li>无脑抢地主导致牌权失控</li>
+          <li>忽略牌权交换的节奏</li>
+          <li>农民各自为战，缺乏协同</li>
+          <li>贪心炸弹出牌序混乱</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 提示区 + 相关信息区组合 -->
+    <div class="info-row">
+      <div class="info-item">
+        <strong>一句话提示</strong>
+        <span>斗地主不只是运气游戏，出牌逻辑和信息记忆往往决定牌局走向。多观察已出牌型，少凭感觉出牌。</span>
+      </div>
+      <div class="info-item">
+        <strong>相关版本</strong>
+        <span>经典三人斗地主、四人斗地主（带癞子）以及各地方变体，核心规则大同小异。</span>
+      </div>
+      <div class="info-item">
+        <strong>适合谁看</strong>
+        <span>刚接触斗地主的新手、想提升胜率的普通玩家、以及对棋牌文化感兴趣的朋友。</span>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要区（非完整 FAQ，精选两条） -->
+    <div class="faq-preview">
+      <h3>常见疑问 · 摘要</h3>
+      <div class="faq-item">
+        <strong>为什么我总觉得自己牌很好却输了？</strong>
+        <p>很多时候是因为只关注自己的手牌，忽略了对手可能留有的炸弹或顺子。试着记住关键大牌（2、王、A）的出场情况，能帮你避免误判。</p>
+      </div>
+      <div class="faq-item">
+        <strong>农民之间怎么配合最有效？</strong>
+        <p>尽量通过出牌向同伴传递信息：例如先出中等牌力的单张或对子，让同伴知道你需要接牌；不要轻易用大牌压同伴，除非局势需要。</p>
+      </div>
+      <p style="font-size:0.9rem; color:#6b655c; margin-top:1rem;">更多问题可以在站点内搜索对应关键词，或直接体验 <a href="https://play-doudizhu.com">斗地主</a> 来验证你的理解。</p>
+    </div>
+
+    <hr>
+
+    <div class="cta-line">
+      如果你已经熟悉基础，不妨直接开始新的一局，在实战中消化这些知识。
+    </div>
+  </div>
+</body>
+</html>
