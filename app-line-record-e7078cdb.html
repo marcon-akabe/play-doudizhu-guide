@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 主题知识库</title>
+    <style>
+        /* reset & base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+            background-color: #faf7f2;
+            color: #2b2b2b;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        /* typography & spacing */
+        h1, h2, h3 { font-weight: 400; letter-spacing: 0.02em; }
+        h1 {
+            font-size: 2.6rem;
+            border-bottom: 1px solid #d9cdbd;
+            padding-bottom: 1rem;
+            margin-bottom: 2.4rem;
+            color: #3a3229;
+            font-weight: 350;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin: 2.8rem 0 1rem 0;
+            color: #4c3f33;
+            border-left: 4px solid #b8a58a;
+            padding-left: 1rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #5c4e3f;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        a {
+            color: #7f6b53;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8a58a;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        a:hover {
+            color: #4f3f30;
+            border-bottom: 1px solid #4f3f30;
+        }
+        /* card-like section */
+        .section-card {
+            background: rgba(255, 253, 250, 0.85);
+            border-radius: 12px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e6ddd2;
+        }
+        /* blockquote / 引用块 */
+        blockquote {
+            margin: 1.8rem 0;
+            padding: 1.2rem 1.8rem;
+            background: #f0ebe2;
+            border-left: 6px solid #b29f89;
+            font-style: normal;
+            color: #3f3830;
+            border-radius: 0 8px 8px 0;
+            quotes: none;
+        }
+        blockquote p {
+            margin-bottom: 0.4rem;
+        }
+        blockquote footer {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #6b5d4e;
+        }
+        /* 提示区 — 柔和提示框 */
+        .notice-box {
+            background: #f3efe8;
+            border-radius: 10px;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0;
+            border-left: 4px solid #bfab92;
+            color: #3f372e;
+        }
+        .notice-box strong {
+            color: #6b553d;
+        }
+        /* 目录感网格 (相关信息区) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.6rem 0;
+        }
+        .info-item {
+            background: #f9f5ef;
+            padding: 1.2rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #e3d9cd;
+        }
+        .info-item h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4f4133;
+            margin-bottom: 0.4rem;
+            border-bottom: 1px dashed #d6c8b8;
+            padding-bottom: 0.3rem;
+        }
+        .info-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #4c443b;
+        }
+        /* 特色列表 */
+        ul.feature-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 1.2rem 0;
+        }
+        ul.feature-list li {
+            padding: 0.3rem 0 0.3rem 1.6rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        ul.feature-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.3rem;
+            color: #a18d77;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+        /* 简单响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1.5rem 1rem; }
+            h1 { font-size: 2rem; }
+            .section-card { padding: 1.2rem; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd5c9;
+            margin: 2rem 0;
+        }
+        .small-meta {
+            font-size: 0.85rem;
+            color: #7c7165;
+            margin-top: 0.4rem;
+        }
+        .hero-remark {
+            font-size: 1.1rem;
+            color: #5a4e41;
+            margin: 0.5rem 0 1.5rem 0;
+            padding: 0.2rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>爱游戏 · 主题笔记</h1>
+
+<div class="hero-remark">
+    一个围绕游戏文化、设计思维与日常乐趣的知识入口。这里没有喧哗，只有克制的收集与梳理。
+</div>
+
+<!-- 介绍区 / 说明区 -->
+<p>
+    说起「游戏」，许多人首先想到的是娱乐与放松。但若稍加观察，便会发现游戏的世界里藏着策略、叙事、美学与社交的层层纹理。这份页面所指向的，正是这样一个不断生长的主题空间——<a href="https://app-line-igame.com">爱游戏</a>，一个以整理和分享为核心的轻量知识库。我们不追逐热点，而是希望为那些对游戏抱有持久兴趣的人，提供一些可以静下心来阅读的片段。
+</p>
+
+<!-- 卡片式说明区：目录感布局 -->
+<div class="section-card">
+    <h2>📂 内容脉络</h2>
+    <p>整个知识站围绕几个相对稳定的模块展开，像是书房里几个常读的文件夹：</p>
+    <ul class="feature-list">
+        <li><strong>设计手记</strong> — 关卡搭建、机制拆解、界面考究，偶尔也聊聊像素与配色。</li>
+        <li><strong>叙事切片</strong> — 剧情设定、角色弧光、世界观笔记，从文字中看游戏如何讲故事。</li>
+        <li><strong>类型观察</strong> — 模拟经营、策略、角色扮演、解谜……梳理每个品类的特征与演变。</li>
+        <li><strong>旧匣子</strong> — 经典作品回顾、冷门佳作拾遗，以及那些在记忆里留下划痕的片段。</li>
+    </ul>
+    <p class="small-meta">以上分类并非固定，随着阅读和笔记的积累，目录也会自然调整。</p>
+</div>
+
+<!-- 提示区 -->
+<div class="notice-box">
+    <strong>💡 查阅提示</strong> — 这个知识库以文本和静态页面为主，内容均经过筛选与整理，但依然保持开放修订的态度。如果你对某个话题有不同见解或补充，欢迎通过站内线索找到反馈入口（目前正在逐步搭建中）。
+</div>
+
+<!-- 特点 / 场景 混合区 -->
+<blockquote>
+    <p>「好的游戏像一座精心布置的庭院，你总能在某个转角发现一片未曾注意的苔藓。」</p>
+    <footer>—— 摘自某次关于环境叙事的笔记</footer>
+</blockquote>
+
+<p>
+    在这个信息过载的时代，或许我们需要的不是更多的列表与评测，而是一个可以慢慢翻阅的角落。<a href="https://app-line-igame.com">爱游戏</a> 并不试图覆盖所有，它更看重那些经得起细读的内容——从早期游戏的像素限制到独立作品中的实验性叙事，从系统设计的最小单位到玩家社区的语言演化。每一篇笔记都尽量保持平实，不追求辞藻，只希望说清一件事。
+</p>
+
+<h2>📌 适合怎样的翻阅场景</h2>
+<p>
+    你可以在午休时打开一篇关于《时空幻境》时间机制的文章，也可以在通勤路上读一段关于 Roguelike 随机性的思考。这里没有推送，没有排行榜，只有按主题归类的文本。作为<a href="https://app-line-igame.com">爱游戏</a>的一部分，这个页面本身就是一个入口——它提醒你，游戏不只是消遣，也是一种表达的方式。
+</p>
+
+<!-- 相关信息区：卡片式网格 -->
+<h2>📖 相关信息</h2>
+<div class="info-grid">
+    <div class="info-item">
+        <h4>主题演变</h4>
+        <p>从早期街机到当代独立作品，每个阶段都有独特的设计语境。知识库会持续补充不同时期的代表性案例。</p>
+    </div>
+    <div class="info-item">
+        <h4>阅读建议</h4>
+        <p>不必从头开始，按兴趣挑选目录中的标题即可。笔记之间常有隐形的关联，顺藤摸瓜也是一种乐趣。</p>
+    </div>
+    <div class="info-item">
+        <h4>版权说明</h4>
+        <p>所有笔记均为原创整理或引用后标注来源，不涉及未授权的素材。站内内容采用 CC BY-NC 4.0 许可。</p>
+    </div>
+    <div class="info-item">
+        <h4>相邻站点</h4>
+        <p>未来会与一些专注游戏美术、音频分析的站点建立互链，形成一个松散的内容群落。</p>
+    </div>
+</div>
+
+<!-- FAQ 摘要 以自然段落形式出现 -->
+<h2>❓ 常见疑问摘要</h2>
+<p>
+    <strong>Q：内容更新频率是怎样的？</strong><br>
+    并不固定——有时一周会更新两三次，有时则会花较长时间整理一篇长文。比起数量，更在意每一篇的完成度。
+</p>
+<p>
+    <strong>Q：是否有社区或讨论区？</strong><br>
+    目前以单向阅读为主，计划在后续阶段加入轻量级的留言功能（基于静态评论方案）。如果你希望就某个话题交流，也可以通过页面角落的邮箱联系（整理中）。
+</p>
+<p>
+    <strong>Q：我可以转载或引用这里的内容吗？</strong><br>
+    非商业用途且注明出处即可。具体请参考相关信息区的许可说明。
+</p>
+
+<hr>
+
+<div class="notice-box" style="border-left-color: #a28f78;">
+    <strong>📋 最后一点</strong> — 这份页面本身也是「爱游戏」知识库的一部分，它记录了这个站点的初衷与边界。无论你是偶然路过，还是特意寻来，希望这里的文字能给你一点安静的启发。
+</div>
+
+<!-- 底部自然包含链接的句子（已放在前面多处，此处再自然嵌入一次） -->
+<p style="margin-top: 2rem; font-size: 0.95rem; color: #6b6055;">
+    如果你对游戏的文化层面与设计细节感兴趣，不妨从 <a href="https://app-line-igame.com">爱游戏</a> 开始，慢慢浏览那些已经整理好的笔记目录。
+</p>
+
+</body>
+</html>
